@@ -1,0 +1,21 @@
+---
+map_name: "Horizon Map"
+odom_sub_topic: "/odometry/filtered"
+ground_points_sub_topic: "/lidar_processing/segmenter/points_ground"
+nonground_points_sub_topic: "/lidar_processing/segmenter/points_nonground"
+static_map_sub_topic: "/apriori_map"
+map_frame_id: "odom"
+vehicle_frame_id: "base_link"
+map_len: 250
+resolution: 1
+obstacle_filter_ns: "t_mapping_obstacle_filters"
+map_operations_filter_ns: "t_mapping_map_operations"
+enable_permanent_obstacles: true
+permanent_obstacle_probability: 0.999
+history_layer_prefix: "history_"
+num_history_layers: 100
+enable_height_point_filtering: true
+max_point_height: 2.5
+enable_bounding_box_filter: true
+footprint_len_m: 6.5
+footprint_width_m: 2.5

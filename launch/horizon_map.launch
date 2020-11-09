@@ -1,0 +1,8 @@
+<launch>
+
+    <node pkg="t_mapping" type="sensor_map_node" name="horizon_map" output="screen">
+        <rosparam command="load" file="$(find t_mapping)/config/horizon_map.yaml"/>
+        <rosparam command="load" file="$(find t_mapping)/config/filter_chain_low_confidence.yaml"/>
+    </node>
+
+</launch>

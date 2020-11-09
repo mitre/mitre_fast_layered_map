@@ -1,0 +1,10 @@
+<launch>
+        <node pkg="t_mapping" type="sensor_map_node" name="local_map" output="screen"
+            launch-prefix="valgrind --tool=callgrind --callgrind-out-file='callgrind.t_mapping.%p'">
+
+            <rosparam command="load" file="$(find t_mapping)/config/local_map.yaml" />
+
+            <rosparam command="load" file="$(find t_mapping)/config/filter_chain.yaml" />
+        </node>
+
+</launch>

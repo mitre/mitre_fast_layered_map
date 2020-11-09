@@ -1,0 +1,8 @@
+t_mapping_filters_threshold:
+    - name: threshold_filter
+      type: tMapping/ThresholdFilter
+      params:
+        value_layer: current_probability
+        output_layer: nonground
+        threshold: 0.4
+        output_value: 100

@@ -1,0 +1,5 @@
+ - builder: doxygen
+   name: C++ API
+   output_dir: c++
+   file_patterns: '*.md *.cpp *.hpp *.dox'
+   use_mdfile_as_mainpage: README.md

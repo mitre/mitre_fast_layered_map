@@ -1,0 +1,7 @@
+t_mapping_filters:
+
+  - name: outlier_removal
+    type: tMapping/OutlierRemoval
+    params:
+      layer: map
+      

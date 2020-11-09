@@ -1,0 +1,14 @@
+t_mapping_filters:
+
+  - name: inflation
+    type: tMapping/Inflation
+    params:
+      layer: nonground
+      inflation_side_len_m: 1.5
+
+t_mapping_filters_low_inflation:
+  - name: inflation
+    type: tMapping/Inflation
+    params:
+      layer: nonground
+      inflation_side_len_m: 1

@@ -1,0 +1,6 @@
+---
+map_name: "Static Map"
+marker_sub_topic: "/object_detection"
+static_map_sub_topic: "/apriori_map"
+gridmap_sub_topic: "/horizon_map/gridmap"
+gridmap_layer: "permanent"

@@ -1,0 +1,8 @@
+<launch>
+
+    <test test-name="test_filter_ray_trace" pkg="t_mapping" type="test_filter_ray_trace" 
+        time-limit="2000" >
+        <rosparam command="load" file="$(find t_mapping)/test/config/filter_chain_ray_trace.yaml" />
+    </test>
+
+</launch>

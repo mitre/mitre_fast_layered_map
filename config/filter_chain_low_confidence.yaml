@@ -1,0 +1,37 @@
+t_mapping_obstacle_filters:
+
+    - name: bayes_update
+      type: tMapping/BayesUpdate
+      params:
+        probability_layer: current_probability
+        history_layer_prefix: "history_"
+        history_count: 100
+        # Advanced settings for sensor model
+        starting_prob: 0.3
+        prob_sense_emp_given_occ: 0.1
+        prob_sense_emp_given_emp: 0.8
+        prob_sense_occ_given_occ_rate: 0.05
+        prob_sense_occ_given_occ_offset: 0.2
+        prob_sense_occ_given_emp_rate: -0.1
+        prob_sense_occ_given_emp_offset: 1
+  
+    - name: threshold_filter_nonground
+      type: tMapping/ThresholdFilter
+      params:
+        value_layer: current_probability
+        output_layer: nonground
+        threshold: 0.99
+        output_value: 100
+
+t_mapping_map_operations:
+    - name: ray_trace_2d
+      type: tMapping/RayTrace2d
+      params:
+        nonground_layer: nonground
+        ground_layer: ground
+         
+    - name: inflation
+      type: tMapping/Inflation
+      params:
+        layer: nonground
+        inflation_side_len_m: 1

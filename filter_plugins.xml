@@ -1,0 +1,29 @@
+<class_libraries>
+    <library path="lib/libfilter_plugins">
+        <class name="tMapping/OutlierRemoval" type="t_mapping::OutlierRemoval" base_class_type="filters::FilterBase<grid_map::GridMap>">
+            <description>
+            Part of the filter chain for the grid map that will attempt to remove outliers.
+            </description>
+        </class>
+        <class name="tMapping/RayTrace2d" type="t_mapping::RayTrace2d" base_class_type="filters::FilterBase<grid_map::GridMap>">
+            <description>
+            Interpolates between known points to determine if cells are clear or unknown.
+            </description>
+        </class>
+        <class name="tMapping/Inflation" type="t_mapping::Inflation" base_class_type="filters::FilterBase<grid_map::GridMap>">
+            <description>
+            Inflates obstacles to include all cells within a given radius.
+            </description>
+        </class>
+        <class name="tMapping/BayesUpdate" type="t_mapping::BayesUpdate" base_class_type="filters::FilterBase<grid_map::GridMap>">
+            <description>
+            Updates probabilities of a cell being occupied given current and past sensor readings.
+            </description>
+        </class>
+        <class name="tMapping/ThresholdFilter" type="t_mapping::ThresholdFilter" base_class_type="filters::FilterBase<grid_map::GridMap>">
+            <description>
+            Filter elements of gridmap by a given threshold and fills a corresponding layer with the output value of each cell that passed.
+            </description>
+        </class>
+    </library>
+</class_libraries>
