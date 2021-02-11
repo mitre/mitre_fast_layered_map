@@ -36,6 +36,11 @@ bool RayTrace2d::configure()
         return false;
     }
 
+    if(!RayTrace2d::getParam(std::string("mode"), mode_))
+    {
+        mode_ = "prod"; // Default is production mode
+    }
+
     ROS_INFO("Configured RayTrace2d with nonground layer: %s, and ground layer: %s", nongroundLayer_.c_str(), groundLayer_.c_str());
 
     return true;
@@ -78,57 +83,36 @@ bool RayTrace2d::update(const grid_map::GridMap& _mapIn, grid_map::GridMap& _map
 
     ASSUMPTION: The grid is square
 
-    To calculate the boundary cells we first notice that we can get the position of the 4 corners
-    of the grid with the equation (x, y) = (+- grid_len / 2, +- grid_len / 2)
+    To get the outermost rows and columns, we start with the gridMap.getStartIndex() function
+    which gives us the index of the top left cell in the grid. this immediately gives us the top
+    row and the left column.
 
-    We can then calculate the position of each cell in a row/col by adding/subtracting 
-    multiples of the resolution to the corner points.   
+    From there, we can calculate the bottom row and right column by adding the number of rows - 1
+    (to offset for the current row) modulus the number of rows to account for the wrapping. If this seems 
+    strange, try drawing a 5x5 grid and manually doing the calculations.
     */
 
     grid_map::Position vehPosition = _mapOut.getPosition();
-    double resolution = _mapOut.getResolution();
-    double length = _mapOut.getLength().x(); // ASSUMPTION: Square grid where length = width
 
     grid_map::Index vehIndex;
     _mapOut.getIndex(vehPosition, vehIndex);  // Lines always start at the vehicle
 
-    double halfLen = length / 2;
-    double halfRes = resolution / 2;
-    
-    grid_map::Position pos;
-    grid_map::Index posIndex;
-    Eigen::Vector2d addVector;
+    int numRows = _mapOut.getSize()(0);
 
-    /*
-    VISUALIZATION NOTE:
-    Due to starting at -halfLen and going to halfLen, you can imagine this as starting
-    at the top left and bottom left corners and working to the right for rows, and starting
-    at the bottom left and bottom right and working our way up the columns of the grid.
-    */
-    for (double cellDist = -halfLen; cellDist < halfLen; cellDist += resolution)
+    grid_map::Index startIdx = _mapOut.getStartIndex(); // Index of cell at top left corner
+    int topRow = startIdx(0);
+    int bottomRow = (startIdx(0) + (numRows - 1)) % numRows;
+    int leftCol = startIdx(1);
+    int rightCol = (startIdx(1) + (numRows - 1)) % numRows;
+
+    for(int i = 0; i < numRows; i++)
     {
-        // We add resolution / 2 in many cases to aim for the center of the cell
-
-        Eigen::MatrixXd mat(2, 4);
-        // [right col, left col, top row, bottom row] where each element is a 2d vertical vector
-        mat <<
-             halfLen - halfRes, -halfLen + halfRes, cellDist + halfRes, cellDist + halfRes,
-            cellDist + halfRes, cellDist + halfRes,  halfLen - halfRes, -halfLen + halfRes;
-
-        for (int i = 0; i < mat.cols(); i++)
-        {
-            pos = vehPosition + mat.col(i);
-
-            if(_mapOut.getIndex(pos, posIndex))
-            {
-                trace(_mapOut, vehIndex, posIndex);
-            }
-            else
-            {
-                ROS_WARN("Calculation outside of map: x - %f, y - %f", pos[0], pos[1]);
-            }
-        }
+        trace(_mapOut, vehIndex, grid_map::Index(topRow, i)); // Ray traces going towards top row
+        trace(_mapOut, vehIndex, grid_map::Index(bottomRow, i)); // Ray traces going towards bottom row
+        trace(_mapOut, vehIndex, grid_map::Index(i, leftCol)); // Ray traces going towards left column
+        trace(_mapOut, vehIndex, grid_map::Index(i, rightCol)); // Ray traces going towards right column
     }
+
     return true;
 
 }

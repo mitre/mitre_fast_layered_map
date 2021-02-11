@@ -173,3 +173,42 @@ TEST(RayTrace, front_blocked)
         EXPECT_EQ(answerMat(index(0), index(1)), gridMap.at("occupancy", index));
     }
 }
+
+/*************
+ * Performs ray tracing operation on various size grids in order to ensure
+ * the math is performed correctly. In the past we have had small errors
+ * that caused cell calculations to be out of bounds.
+ ************/
+TEST(RayTrace, stress_test)
+{
+    ros::NodeHandle nh("~");
+    grid_map::GridMap gridMap({"occupancy"});
+    gridMap.setFrameId("map");
+    // Initialize nonground
+    gridMap.add("ground", 0);
+    gridMap.add("nonground", 0);
+
+    filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
+    if(!filterChain.configure("t_mapping_filters", nh))
+    {
+        GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
+    }
+
+    for (int i = 5; i < 100; i+=3)
+    {
+        for (int j = 1; j <= 10; j++)
+        {
+            gridMap.setGeometry(grid_map::Length(i, i), 0.1 * j);
+
+            gridMap["ground"].setConstant(0);
+            gridMap["nonground"].setConstant(0);
+
+            if(!filterChain.update(gridMap, gridMap))
+            {
+                GTEST_FATAL_FAILURE_("Unable to update grid map.");
+            }
+        }
+    }
+
+
+}
