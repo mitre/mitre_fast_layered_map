@@ -147,11 +147,22 @@ Depending on your needs, it is common to run using a local map for short range m
 
 ## Grid Map Background
 
-For each of our maps, we use the [GridMap](https://github.com/ANYbotics/grid_map) library to store obstacles and keep relative position. Please view the GridMap page for a detailed overview, but we have added the image below that they use as a brief view of how the data is organized. In brief, for each cell in our map, we can have multiple layers that all contain different information about that particular cell such as how many ground or nonground points landed in the cell, liklihood of being an obstacle, or the lowest point in the cell. We can then pass this information to our filters.
+For each of our maps, we use the [GridMap](https://github.com/ANYbotics/grid_map) library to store obstacles and keep relative position. Please view the GridMap page for a detailed overview, but we have added the image below from their github as a an overview of how the data is organized.
 
 ![GridMap Basics](media/grid_map.png)
 
-Below we discuss what layers we store, and what information lives in each layer.
+In brief, GridMap has a layered "rolling" grid structure.
+
+In this case, layered means that each cell is able to record various types of data about itself, which is then held in the seperate layers of the GridMap. For example we record the number of ground and nonground points in a cell, but the data for each is kept in a seperate layer. Below we discuss what layers we store, and what information lives in each layer. 
+    
+The "rolling" of the grid indicates that as the grid moves, cells are not deleted, but are rather "rolled" to the opposite side of the grid. For instance, when moving forward, the cells at the very edge of the back will be moved to the front once they are out of scope. 
+
+
+Please be aware of the following side effects of GridMap, which could cause subtle errors.
+1. Due to the "rolling grid" the map can only move discretely in increments of the cell resolution. Therefore, if the vehicle were to move less than the cell resolution, the grid would not move and the vehicle might be slightly off center of the grid.
+2. As shown from the image, a cells position is the center of the cell and is **not** attached to any of the corners.
+3. As shown in the image, by default GridMap uses the ROS FLU coordinate standard.
+4. Our mapping system only interacts with GridMap. The occupancy grid that we output is created by a conversion function provided by GridMap that turns a single layer into an occupancy grid. It should follow all ROS standards for occupancy grids.
 
 ## Sensor Map
 

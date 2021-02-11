@@ -100,6 +100,7 @@ namespace t_mapping
         std::string nongroundLayer_; ///< Layer that holds non ground points. Will be used to check objects
         ///< blocking rays
         std::string groundLayer_; ///< Layer for setting ground plane points
+        std::string mode_; ///< Production or testing. If testing mode will throw errors if calculations break bounds.
     };
 
 

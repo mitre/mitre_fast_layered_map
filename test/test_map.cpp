@@ -450,11 +450,16 @@ TEST(SensorMap, nongroundManyFrames)
 
 }
 
-// /**
-//  * Adds lidar points and then runs our current best
-//  * filter pipeline. The pipeline should look like
-//  * Nonground points -> bayes -> threshold -> ray trace -> inflation
-//  */
+/*****************
+ * NOTE: THIS TEST SEEMS TO FAIL RANDOMLY DUE TO A BAD MALLOC. I HAVEN'T
+ * BEEN ABLE TO IDENTIFY IF THIS IS A MEMORY LEAK OR SOMETHING ELSE.
+ *****************/
+
+/**
+ * Adds lidar points and then runs our current best
+ * filter pipeline. The pipeline should look like
+ * Nonground points -> bayes -> threshold -> ray trace -> inflation
+ */
 TEST(SensorMap, fullPipeline)
 {
     MapTestEnv env;
