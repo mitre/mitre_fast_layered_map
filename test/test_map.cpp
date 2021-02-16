@@ -479,7 +479,7 @@ TEST(SensorMap, fullPipeline)
 
     // Points cloud builder. 
     Eigen::MatrixXi cloudPointStorage(8, 3);
-    // x, y, num times
+    // Format: x, y, num times
     cloudPointStorage <<
      1,  1, 9, // (1, 1)
      1, -1, 1, // (1, 3)
@@ -487,7 +487,8 @@ TEST(SensorMap, fullPipeline)
     -1, -1, 4, // (3, 3)
     -1,  0, 6, // (3, 2)
     -1,  1, 7, // (3, 1)
-     0,  1, 8; // (2, 1)
+     0,  1, 8, // (2, 1)
+     0,  0, 0; // Filler, we use this below
 
     // Build our point cloud
     for (int i = 0; i < cloudPointStorage.rows(); i++)
