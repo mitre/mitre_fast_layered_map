@@ -1,9 +1,0 @@
-<launch>
-
-    <include file="$(find t_mapping)/test/launch/test_outlier_removal.launch" />
-    <include file="$(find t_mapping)/test/launch/test_ray_trace.launch" />
-    <include file="$(find t_mapping)/test/launch/test_inflation.launch" />
-    <include file="$(find t_mapping)/test/launch/test_bayes_update.launch" />
-    <include file="$(find t_mapping)/test/launch/test_map.launch" />
-
-</launch>

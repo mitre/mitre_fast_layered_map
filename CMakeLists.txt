@@ -160,37 +160,37 @@ if(CATKIN_ENABLE_TESTING)
   )
 
   add_rostest_gtest(test_filter_outlier_removal 
-    test/launch/test_outlier_removal.launch 
+    test/launch/outlier_removal.launch 
     test/test_filter_outlier_removal.cpp
     test/test_t_mapping.cpp)
   target_link_libraries(test_filter_outlier_removal ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_ray_trace
-    test/launch/test_ray_trace.launch
+    test/launch/ray_trace.launch
     test/test_filter_ray_trace.cpp
     test/test_t_mapping.cpp)
   target_link_libraries(test_filter_ray_trace ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_inflation
-    test/launch/test_inflation.launch
+    test/launch/inflation.launch
     test/test_filter_inflation.cpp
     test/test_t_mapping.cpp)
   target_link_libraries(test_filter_inflation ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_bayes_update
-    test/launch/test_bayes_update.launch
+    test/launch/bayes_update.launch
     test/test_filter_bayes_update.cpp
     test/test_t_mapping.cpp)
   target_link_libraries(test_filter_bayes_update ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_threshold
-    test/launch/test_threshold.launch
+    test/launch/threshold.launch
     test/test_filter_threshold.cpp
     test/test_t_mapping.cpp)
   target_link_libraries(test_filter_threshold ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_map 
-    test/launch/test_map.launch 
+    test/launch/map.launch 
     test/test_map.cpp 
     test/test_t_mapping.cpp
     test/init_vars.cpp)
