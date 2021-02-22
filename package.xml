@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>t_mapping</name>
-  <version>0.1.2</version>
+  <version>0.1.3</version>
   <description>The t_mapping package</description>
 
   <maintainer email="tbostic@mitre.org">tbostic</maintainer>
