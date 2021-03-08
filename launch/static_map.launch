@@ -1,7 +1,7 @@
 <launch>
 
-    <node pkg="t_mapping" type="static_map_node" name="static_map" output="screen">
-        <rosparam command="load" file="$(find t_mapping)/config/static_map.yaml"/>
+    <node pkg="mitre_fast_layered_map" type="static_map_node" name="static_map" output="screen">
+        <rosparam command="load" file="$(find mitre_fast_layered_map)/config/static_map.yaml"/>
     </node>
 
 </launch>

@@ -10,7 +10,7 @@
 #include <grid_map_core/grid_map_core.hpp>
 #include <pluginlib/class_list_macros.hpp>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 Inflation::Inflation()
 {
@@ -256,6 +256,6 @@ bool Inflation::update(const grid_map::GridMap &_mapIn, grid_map::GridMap &_mapO
 }
 
 
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map
 
-PLUGINLIB_EXPORT_CLASS(t_mapping::Inflation, filters::FilterBase<grid_map::GridMap>);
+PLUGINLIB_EXPORT_CLASS(mitre_fast_layered_map::Inflation, filters::FilterBase<grid_map::GridMap>);

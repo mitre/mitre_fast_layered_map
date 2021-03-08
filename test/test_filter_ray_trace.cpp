@@ -24,7 +24,7 @@ TEST(RayTrace, layers_dont_exist)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -69,7 +69,7 @@ TEST(RayTrace, fully_open)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -135,7 +135,7 @@ TEST(RayTrace, front_blocked)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -189,7 +189,7 @@ TEST(RayTrace, stress_test)
     gridMap.add("nonground", 0);
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }

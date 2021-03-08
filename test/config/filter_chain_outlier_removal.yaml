@@ -1,7 +1,7 @@
-t_mapping_filters:
+mitre_fast_layered_map_filters:
 
   - name: outlier_removal
-    type: tMapping/OutlierRemoval
+    type: mitreFastLayeredMap/OutlierRemoval
     params:
       layer: map
       

@@ -6,7 +6,7 @@
 
 #include "sensor_map.hpp"
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
     TestMap::TestMap()
     {}

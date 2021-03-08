@@ -25,7 +25,7 @@ TEST(BayesUpdate, layers_dont_exist)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if (!filterChain.configure("t_mapping_filters_bayes_update", nh))
+    if (!filterChain.configure("mitre_fast_layered_map_filters_bayes_update", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -70,7 +70,7 @@ TEST(BayesUpdate, binary)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if (!filterChain.configure("t_mapping_filters_bayes_update", nh))
+    if (!filterChain.configure("mitre_fast_layered_map_filters_bayes_update", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -151,7 +151,7 @@ TEST(BayesUpdate, readings)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if (!filterChain.configure("t_mapping_filters_bayes_update", nh))
+    if (!filterChain.configure("mitre_fast_layered_map_filters_bayes_update", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }

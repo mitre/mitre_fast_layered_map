@@ -1,12 +1,12 @@
 <launch>
     <!-- FOR DEBUG -->
-    <!-- <test test-name="test_filter_inflation" pkg="t_mapping" type="test_filter_inflation" 
+    <!-- <test test-name="test_filter_inflation" pkg="mitre_fast_layered_map" type="test_filter_inflation" 
         time-limit="2000" launch-prefix="xterm -e gdb -tui -/-args"> -->
 
 
-    <test test-name="test_filter_inflation" pkg="t_mapping" type="test_filter_inflation" 
+    <test test-name="test_filter_inflation" pkg="mitre_fast_layered_map" type="test_filter_inflation" 
         time-limit="2000">
-        <rosparam command="load" file="$(find t_mapping)/test/config/filter_chain_inflation.yaml" />
+        <rosparam command="load" file="$(find mitre_fast_layered_map)/test/config/filter_chain_inflation.yaml" />
     </test>
 
 </launch>

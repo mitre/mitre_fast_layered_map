@@ -10,11 +10,11 @@
 
 
 if [[ $1 == '-v' ]]; then
-    catkin build t_mapping --verbose --catkin-make-args run_tests
+    catkin build mitre_fast_layered_map --verbose --catkin-make-args run_tests
 elif [[ $1 == '-b' ]]; then
-    catkin build t_mapping --catkin-make-args run_tests
+    catkin build mitre_fast_layered_map --catkin-make-args run_tests
 elif [[ $1 == '-d' ]]; then
-    catkin build t_mapping --catkin-make-args run_tests --cmake-args -DCMAKE_BUILD_TYPE=Debug
+    catkin build mitre_fast_layered_map --catkin-make-args run_tests --cmake-args -DCMAKE_BUILD_TYPE=Debug
 else
-    catkin build t_mapping --verbose --catkin-make-args run_tests | grep '\[.\{10\}\]'
+    catkin build mitre_fast_layered_map --verbose --catkin-make-args run_tests | grep '\[.\{10\}\]'
 fi

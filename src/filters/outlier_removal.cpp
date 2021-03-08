@@ -9,7 +9,7 @@
 #include <grid_map_core/GridMap.hpp>
 #include <pluginlib/class_list_macros.hpp>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 
 OutlierRemoval::OutlierRemoval()
@@ -116,7 +116,7 @@ bool OutlierRemoval::IsOutlierPoint(grid_map::GridMap& _map, const grid_map::Ind
 
 }
 
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map
 
 
-PLUGINLIB_EXPORT_CLASS(t_mapping::OutlierRemoval, filters::FilterBase<grid_map::GridMap>);
+PLUGINLIB_EXPORT_CLASS(mitre_fast_layered_map::OutlierRemoval, filters::FilterBase<grid_map::GridMap>);

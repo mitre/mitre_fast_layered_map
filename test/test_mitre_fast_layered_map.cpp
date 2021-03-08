@@ -6,7 +6,7 @@
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "t_mapping_test_suite");
+    ros::init(argc, argv, "mitre_fast_layered_map_test_suite");
 
     // We don't want to see error messages that we mean to cause
     if(ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME, ros::console::levels::Fatal)) 

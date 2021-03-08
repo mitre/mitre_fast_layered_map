@@ -5,8 +5,8 @@
  * for that capability.
  * @author Trevor Bostic
  */
-#ifndef t_mapping_static_map
-#define t_mapping_static_map
+#ifndef mitre_fast_layered_map_static_map
+#define mitre_fast_layered_map_static_map
 #pragma once
 
 // STD
@@ -26,7 +26,7 @@
 #include <grid_map_ros/grid_map_ros.hpp>
 #include <grid_map_msgs/GridMap.h>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
     struct StaticMapConfiguration
     {

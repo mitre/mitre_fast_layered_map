@@ -1,26 +1,26 @@
 <class_libraries>
     <library path="lib/libfilter_plugins">
-        <class name="tMapping/OutlierRemoval" type="t_mapping::OutlierRemoval" base_class_type="filters::FilterBase<grid_map::GridMap>">
+        <class name="mitreFastLayeredMap/OutlierRemoval" type="mitre_fast_layered_map::OutlierRemoval" base_class_type="filters::FilterBase<grid_map::GridMap>">
             <description>
             Part of the filter chain for the grid map that will attempt to remove outliers.
             </description>
         </class>
-        <class name="tMapping/RayTrace2d" type="t_mapping::RayTrace2d" base_class_type="filters::FilterBase<grid_map::GridMap>">
+        <class name="mitreFastLayeredMap/RayTrace2d" type="mitre_fast_layered_map::RayTrace2d" base_class_type="filters::FilterBase<grid_map::GridMap>">
             <description>
             Interpolates between known points to determine if cells are clear or unknown.
             </description>
         </class>
-        <class name="tMapping/Inflation" type="t_mapping::Inflation" base_class_type="filters::FilterBase<grid_map::GridMap>">
+        <class name="mitreFastLayeredMap/Inflation" type="mitre_fast_layered_map::Inflation" base_class_type="filters::FilterBase<grid_map::GridMap>">
             <description>
             Inflates obstacles to include all cells within a given radius.
             </description>
         </class>
-        <class name="tMapping/BayesUpdate" type="t_mapping::BayesUpdate" base_class_type="filters::FilterBase<grid_map::GridMap>">
+        <class name="mitreFastLayeredMap/BayesUpdate" type="mitre_fast_layered_map::BayesUpdate" base_class_type="filters::FilterBase<grid_map::GridMap>">
             <description>
             Updates probabilities of a cell being occupied given current and past sensor readings.
             </description>
         </class>
-        <class name="tMapping/ThresholdFilter" type="t_mapping::ThresholdFilter" base_class_type="filters::FilterBase<grid_map::GridMap>">
+        <class name="mitreFastLayeredMap/ThresholdFilter" type="mitre_fast_layered_map::ThresholdFilter" base_class_type="filters::FilterBase<grid_map::GridMap>">
             <description>
             Filter elements of gridmap by a given threshold and fills a corresponding layer with the output value of each cell that passed.
             </description>

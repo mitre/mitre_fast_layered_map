@@ -10,7 +10,7 @@
 #include <pluginlib/class_list_macros.hpp>
 #include <chrono>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 
 BayesUpdate::BayesUpdate()
@@ -206,7 +206,7 @@ double BayesUpdate::dynamicSenseOccGivenEmp(int numHits)
     return std::max(0.01, (numHits * probSenseOccGivenEmpRate_) + probSenseOccGivenEmpOffset_);
 }
 
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map
 
 
-PLUGINLIB_EXPORT_CLASS(t_mapping::BayesUpdate, filters::FilterBase<grid_map::GridMap>);
+PLUGINLIB_EXPORT_CLASS(mitre_fast_layered_map::BayesUpdate, filters::FilterBase<grid_map::GridMap>);

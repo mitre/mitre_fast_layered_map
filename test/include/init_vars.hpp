@@ -10,8 +10,8 @@ public:
 
     MapTestEnv();
 
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
 
-    t_mapping::MapConfiguration defaultConfig_;
-    t_mapping::MapConfiguration smallMap_;
+    mitre_fast_layered_map::MapConfiguration defaultConfig_;
+    mitre_fast_layered_map::MapConfiguration smallMap_;
 };

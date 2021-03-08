@@ -9,7 +9,7 @@
 // Us
 #include "sensor_map.hpp"
 
-int getParameters(ros::NodeHandle _nh, t_mapping::MapConfiguration& _mapConfig)
+int getParameters(ros::NodeHandle _nh, mitre_fast_layered_map::MapConfiguration& _mapConfig)
 {
 
     // Constants for now. Use <remap> in launch file
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "t_sensor_map");
     ros::NodeHandle nh("~");
-    t_mapping::MapConfiguration mapConfig;
+    mitre_fast_layered_map::MapConfiguration mapConfig;
 
     if (getParameters(nh, mapConfig) < 0)
     {
@@ -123,7 +123,7 @@ int main(int argc, char **argv)
     //          mapConfig.occupancyOutputTopic.c_str(), mapConfig.frameId.c_str(),
     //          mapConfig.filterNs.c_str(), mapConfig.len.x(), mapConfig.resolution);
 
-    t_mapping::SensorMap sensorMap(&nh, mapConfig);
+    mitre_fast_layered_map::SensorMap sensorMap(&nh, mapConfig);
 
     if (sensorMap.init() < 0)
     {

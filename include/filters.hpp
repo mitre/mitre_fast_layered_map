@@ -10,7 +10,7 @@
 #include <filters/filter_base.h>
 #include <grid_map_core/grid_map_core.hpp>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 /**
  * General approach to using ros filter will look like the code below. You
@@ -149,4 +149,4 @@ namespace t_mapping
             float threshold_;
             float outputValue_;
     };
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map

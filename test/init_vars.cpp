@@ -2,8 +2,8 @@
 
 MapTestEnv::MapTestEnv()
 {
-    defaultConfig_.obstacleFilterNs = "t_mapping_obstacle_filters";
-    defaultConfig_.mapOperationsFilterNs = "t_mapping_map_operations";
+    defaultConfig_.obstacleFilterNs = "mitre_fast_layered_map_obstacle_filters";
+    defaultConfig_.mapOperationsFilterNs = "mitre_fast_layered_map_map_operations";
     defaultConfig_.mapFrameId = "odom";
     defaultConfig_.vehicleFrameId = "base_link";
     defaultConfig_.gridmapOutputTopic = "gridmap";

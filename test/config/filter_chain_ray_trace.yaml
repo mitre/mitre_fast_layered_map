@@ -1,7 +1,7 @@
-t_mapping_filters:
+mitre_fast_layered_map_filters:
 
   - name: ray_trace_2d
-    type: tMapping/RayTrace2d
+    type: mitreFastLayeredMap/RayTrace2d
     params:
       nonground_layer: nonground
       ground_layer: ground

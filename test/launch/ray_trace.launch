@@ -1,8 +1,8 @@
 <launch>
 
-    <test test-name="test_filter_ray_trace" pkg="t_mapping" type="test_filter_ray_trace" 
+    <test test-name="test_filter_ray_trace" pkg="mitre_fast_layered_map" type="test_filter_ray_trace" 
         time-limit="2000" >
-        <rosparam command="load" file="$(find t_mapping)/test/config/filter_chain_ray_trace.yaml" />
+        <rosparam command="load" file="$(find mitre_fast_layered_map)/test/config/filter_chain_ray_trace.yaml" />
     </test>
 
 </launch>

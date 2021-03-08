@@ -11,7 +11,7 @@
 // Ros
 #include <pluginlib/class_list_macros.hpp>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 
 RayTrace2d::RayTrace2d()
@@ -156,6 +156,6 @@ bool RayTrace2d::trace(grid_map::GridMap& _map, const grid_map::Index& start, co
 }
 
 
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map
 
-PLUGINLIB_EXPORT_CLASS(t_mapping::RayTrace2d, filters::FilterBase<grid_map::GridMap>);
+PLUGINLIB_EXPORT_CLASS(mitre_fast_layered_map::RayTrace2d, filters::FilterBase<grid_map::GridMap>);

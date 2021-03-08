@@ -9,7 +9,7 @@
 // Us
 #include "static_map.hpp"
 
-int getParameters(ros::NodeHandle _nh, t_mapping::StaticMapConfiguration& _mapConfig)
+int getParameters(ros::NodeHandle _nh, mitre_fast_layered_map::StaticMapConfiguration& _mapConfig)
 {
 
     // Constants for now. Use <remap> in launch file
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "t_static_map");
     ros::NodeHandle nh("~");
-    t_mapping::StaticMapConfiguration mapConfig;
+    mitre_fast_layered_map::StaticMapConfiguration mapConfig;
 
     if (getParameters(nh, mapConfig) < 0)
     {
@@ -48,7 +48,7 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    t_mapping::StaticMap staticMap(&nh, mapConfig);
+    mitre_fast_layered_map::StaticMap staticMap(&nh, mapConfig);
 
     if (staticMap.init() < 0)
     {

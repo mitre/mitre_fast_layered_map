@@ -1,7 +1,7 @@
-t_mapping_obstacle_filters:
+mitre_fast_layered_map_obstacle_filters:
 
     - name: bayes_update
-      type: tMapping/BayesUpdate
+      type: mitreFastLayeredMap/BayesUpdate
       params:
         probability_layer: current_probability
         history_layer_prefix: "history_"
@@ -16,22 +16,22 @@ t_mapping_obstacle_filters:
         prob_sense_occ_given_emp_offset: 0.5
   
     - name: threshold_filter_nonground
-      type: tMapping/ThresholdFilter
+      type: mitreFastLayeredMap/ThresholdFilter
       params:
         value_layer: current_probability
         output_layer: nonground
         threshold: 0.9
         output_value: 100
     
-t_mapping_map_operations:
+mitre_fast_layered_map_map_operations:
     - name: ray_trace_2d
-      type: tMapping/RayTrace2d
+      type: mitreFastLayeredMap/RayTrace2d
       params:
         nonground_layer: nonground
         ground_layer: ground
   
     - name: inflation
-      type: tMapping/Inflation
+      type: mitreFastLayeredMap/Inflation
       params:
         layer: nonground
         inflation_side_len_m: 1

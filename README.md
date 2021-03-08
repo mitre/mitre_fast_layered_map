@@ -1,4 +1,4 @@
-# T-Mapping
+# MITRE Layered Map
  This package contains a high-speed lidar and gridmap based mapping solution for unstructured environments and an editable "static map" for use in recording obstacles over large distances. The package is intended for use in autonomous vehicle operations since it can perform on a large scale (several hundred meters), at moderate to high resolution (0.3-1m cell width), and at a high frequency (>10hz).
  
  
@@ -47,7 +47,7 @@ sudo apt-get install ros-kinetic-tf2-sensor-msgs
 You should now have all of the packages required to build. You can build by running:
 
 ```bash
-catkin build t_mapping -DCMAKE_BUILD_TYPE=Release
+catkin build mitre_fast_layered_map -DCMAKE_BUILD_TYPE=Release
 ```
 
 You do not need to always build in release mode, but GridMap and Eigen suggest it for matrix optimization. We have generally seen >100% increase in speed in building release vs standard.
@@ -63,7 +63,7 @@ Our current approach using the GPF segmenter launched from the [LidarPerception 
 roslaunch lidar_perception lidar_segmenter.launch
 
 # Second terminal window
-roslaunch t_mapping run_maps.launch
+roslaunch mitre_fast_layered_map run_maps.launch
 ```
 
 The first command will start up the lidar segmentation node, which will output the topics ingested by the mapping node. The second roslaunch will start both our horizon and local mapping systems, which are detailed below.
@@ -139,8 +139,8 @@ Below is a list of configuration options available for use, along with short des
 - `horizon_map` - Starts a map instance in the odom frame with high map_len, but lower resolution.
 - `run_maps` - Launches the local and horizon maps.
 - `static_map` - Launches a static map instance. The map inherits size and frame from the static map it receives.
-- `debug_t_mapping` (Developer Only) - Launches the local_map instance in gdb. Note, you must have compiled with `-DCMAKE_BUILD-TYPE=Debug` prior to launching.
-- `profile_t_mapping`(Developer Only) - Launches the local_map instance with valgrind to record performance.
+- `debug_mitre_fast_layered_map` (Developer Only) - Launches the local_map instance in gdb. Note, you must have compiled with `-DCMAKE_BUILD-TYPE=Debug` prior to launching.
+- `profile_mitre_fast_layered_map`(Developer Only) - Launches the local_map instance with valgrind to record performance.
 
 Depending on your needs, it is common to run using a local map for short range mapping. Due to its high resolution, it can best be used for reflexive behaviors such as obstacle avoidance or short term path or motion planning. A horizon map configuration uses a covers a larger area but with lower resolution. It is best used for longer term behaviors and path planning. Finally, the static map can be integrated with either map to permanently save obstacles. Since this map is not subject to CPU intensive tasks, it can be quite large (>1km) and experience no significant problems. This may be used in cases where long term recorded history is required due to map scrolling issues with the two previous maps (e.g., obstacles roll out of site of the map, so path planning no longer considers them).
 
@@ -373,7 +373,7 @@ The testing for this package is not complete. It generally tests the logic and a
 
 ```bash
 ./scripts/run_tests.sh -b # Build tests
-rostest t_mapping test_all.launch # Run tests
+rostest mitre_fast_layered_map test_all.launch # Run tests
 ```
 
 ## Contributing

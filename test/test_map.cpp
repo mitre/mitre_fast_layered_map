@@ -19,8 +19,8 @@ TEST(SensorMap, friendClass)
 
     // Send and compare configs
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::TestMap testMap;
     EXPECT_TRUE(testMap.CheckConfigEqual(map, env.defaultConfig_));
 }
 
@@ -32,7 +32,7 @@ TEST(SensorMap, friendClass)
 //     env.defaultConfig_.filterNs = "nonexistent";
     
 //     ros::NodeHandle nh("~");
-//     t_mapping::SensorMap map(&nh, env.defaultConfig_);
+//     mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
 //     EXPECT_EQ(-1, map.init());
 // }
 
@@ -40,10 +40,10 @@ TEST(SensorMap, friendClass)
 TEST(SensorMap, correctMapGeometry)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
 
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     map.init();
     
     EXPECT_TRUE(testMap.CheckGeometry(map, env.defaultConfig_.len, env.defaultConfig_.resolution));
@@ -53,14 +53,14 @@ TEST(SensorMap, correctMapGeometry)
 TEST(SensorMap, irregularGeometry)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
 
     // Length is 50 but resolution is 0.3 which doesn't divide evenly
     // we expect length to be set to 50.1
     env.defaultConfig_.resolution = 0.3;
 
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     map.init();
     
     EXPECT_TRUE(testMap.CheckGeometry(map, grid_map::Length(50.1, 50.1), env.defaultConfig_.resolution));
@@ -73,7 +73,7 @@ TEST(SensorMap, runBeforeinit)
     MapTestEnv env;
 
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     EXPECT_EQ(-1, map.once());
 }
 
@@ -83,7 +83,7 @@ TEST(SensorMap, runAfterinit)
     MapTestEnv env;
 
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     EXPECT_EQ(0, map.init());
     EXPECT_EQ(0, map.once());
 }
@@ -92,9 +92,9 @@ TEST(SensorMap, runAfterinit)
 TEST(SensorMap, odomCb)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     
     EXPECT_EQ(0, map.init());
     // Create odom msg
@@ -114,9 +114,9 @@ TEST(SensorMap, odomCb)
 // TEST(SensorMap, fastOdomCb)
 // {
 //     MapTestEnv env;
-//     t_mapping::TestMap testMap;
+//     mitre_fast_layered_map::TestMap testMap;
 //     ros::NodeHandle nh("~");
-//     t_mapping::SensorMap map(&nh, env.defaultConfig_);
+//     mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     
 //     EXPECT_EQ(0, map.init());
 //     // Create odom msg
@@ -144,9 +144,9 @@ TEST(SensorMap, odomCb)
 TEST(SensorMap, odomCbOutOfMapBounds)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     
     EXPECT_EQ(0, map.init());
     // Create odom msg
@@ -164,9 +164,9 @@ TEST(SensorMap, odomCbOutOfMapBounds)
 TEST(SensorMap, noNans)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     
     EXPECT_EQ(0, map.init());
 
@@ -181,9 +181,9 @@ TEST(SensorMap, noNans)
 TEST(SensorMap, moveMapOutOfMapBounds)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.defaultConfig_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.defaultConfig_);
     
     EXPECT_EQ(0, map.init());
 
@@ -205,14 +205,14 @@ TEST(SensorMap, moveMapOutOfMapBounds)
 TEST(SensorMap, groundPoints)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.smallMap_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.smallMap_);
     EXPECT_EQ(0, map.init());
     EXPECT_TRUE(testMap.CheckPosition(map, 0, 0));
 
     // Create point cloud for input
-    t_mapping::PointCloud cloud;
+    mitre_fast_layered_map::PointCloud cloud;
     cloud.width = 6;
     cloud.height = 1;
     // We have a 5mx5m map, so put points within that map
@@ -244,14 +244,14 @@ TEST(SensorMap, groundPoints)
 TEST(SensorMap, elevationMin)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
-    t_mapping::SensorMap map(&nh, env.smallMap_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.smallMap_);
     EXPECT_EQ(0, map.init());
     EXPECT_TRUE(testMap.CheckPosition(map, 0, 0));
 
     // Create point cloud for input
-    t_mapping::PointCloud cloud;
+    mitre_fast_layered_map::PointCloud cloud;
     cloud.width = 7;
     cloud.height = 1;
     // We have a 5mx5m map, so put points within that map
@@ -284,16 +284,16 @@ TEST(SensorMap, elevationMin)
 TEST(SensorMap, nongroundPoints)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
     // Small map for this test
     env.smallMap_.len = grid_map::Length(3, 3);
-    t_mapping::SensorMap map(&nh, env.smallMap_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.smallMap_);
     EXPECT_EQ(0, map.init());
     EXPECT_TRUE(testMap.CheckPosition(map, 0, 0));
 
     // Create point cloud for input
-    t_mapping::PointCloud cloud;
+    mitre_fast_layered_map::PointCloud cloud;
     cloud.width = 33;
     cloud.height = 1;
     // We have a 3mx3m map, so put points within that map
@@ -376,16 +376,16 @@ TEST(SensorMap, nongroundPoints)
 TEST(SensorMap, nongroundManyFrames)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
     // Small map for this test
     env.smallMap_.len = grid_map::Length(3, 3);
-    t_mapping::SensorMap map(&nh, env.smallMap_);
+    mitre_fast_layered_map::SensorMap map(&nh, env.smallMap_);
     EXPECT_EQ(0, map.init());
     EXPECT_TRUE(testMap.CheckPosition(map, 0, 0));
 
     // Create point cloud for input
-    t_mapping::PointCloud cloud;
+    mitre_fast_layered_map::PointCloud cloud;
     cloud.width = 33;
     cloud.height = 1;
     // We have a 3mx3m map, so put points within that map
@@ -463,16 +463,16 @@ TEST(SensorMap, nongroundManyFrames)
 TEST(SensorMap, fullPipeline)
 {
     MapTestEnv env;
-    t_mapping::TestMap testMap;
+    mitre_fast_layered_map::TestMap testMap;
     ros::NodeHandle nh("~");
-    env.smallMap_.obstacleFilterNs = "t_mapping_obstacle_filters";
-    env.smallMap_.mapOperationsFilterNs = "t_mapping_map_operations";
-    t_mapping::SensorMap map(&nh, env.smallMap_);
+    env.smallMap_.obstacleFilterNs = "mitre_fast_layered_map_obstacle_filters";
+    env.smallMap_.mapOperationsFilterNs = "mitre_fast_layered_map_map_operations";
+    mitre_fast_layered_map::SensorMap map(&nh, env.smallMap_);
     EXPECT_EQ(0, map.init());
     EXPECT_TRUE(testMap.CheckPosition(map, 0, 0));
 
     // Create point cloud for input
-    t_mapping::PointCloud cloud;
+    mitre_fast_layered_map::PointCloud cloud;
     cloud.width = 37;
     cloud.height = 1;
     
@@ -526,7 +526,7 @@ TEST(SensorMap, fullPipeline)
     EXPECT_TRUE(testMap.TestMapCells(map, "nonground", nongroundLayerAnswers));
 
     // Create point cloud for input
-    t_mapping::PointCloud cloud2;
+    mitre_fast_layered_map::PointCloud cloud2;
     cloud2.width = 36;
     cloud2.height = 1;
 
@@ -583,14 +583,14 @@ TEST(SensorMap, fullPipeline)
 // TEST(SensorMap, heightFilter)
 // {
 //     MapTestEnv env;
-//     t_mapping::TestMap testMap;
+//     mitre_fast_layered_map::TestMap testMap;
 //     ros::NodeHandle nh("~");
-//     t_mapping::SensorMap map(&nh, env.smallMap_);
+//     mitre_fast_layered_map::SensorMap map(&nh, env.smallMap_);
 //     EXPECT_EQ(0, map.init());
 //     EXPECT_TRUE(testMap.CheckPosition(map, 0, 0));
 
 //     // Create point cloud for input
-//     t_mapping::PointCloud cloud;
+//     mitre_fast_layered_map::PointCloud cloud;
 //     cloud.width = 6;
 //     cloud.height = 1;
 //     // We have a 5mx5m map, so put points within that map

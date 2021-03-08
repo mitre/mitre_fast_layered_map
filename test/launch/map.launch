@@ -1,5 +1,5 @@
 <launch>
-    <test test-name="test_map" pkg="t_mapping" type="test_map">
-        <rosparam command="load" file="$(find t_mapping)/test/config/filter_chain.yaml" />
+    <test test-name="test_map" pkg="mitre_fast_layered_map" type="test_map">
+        <rosparam command="load" file="$(find mitre_fast_layered_map)/test/config/filter_chain.yaml" />
     </test>
 </launch>

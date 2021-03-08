@@ -1,7 +1,7 @@
 <launch>
 
-    <include file="$(find t_mapping)/launch/local_map.launch" />
-    <include file="$(find t_mapping)/launch/horizon_map.launch" />
-    <include file="$(find t_mapping)/launch/static_map.launch" />
+    <include file="$(find mitre_fast_layered_map)/launch/local_map.launch" />
+    <include file="$(find mitre_fast_layered_map)/launch/horizon_map.launch" />
+    <include file="$(find mitre_fast_layered_map)/launch/static_map.launch" />
 
 </launch>

@@ -25,7 +25,7 @@ TEST(Inflation, layers_dont_exist)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -66,7 +66,7 @@ TEST(Inflation, all_clear)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -115,7 +115,7 @@ TEST(Inflation, center_filled)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -183,7 +183,7 @@ TEST(Inflation, center_filled_small_radius)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters_low_inflation", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters_low_inflation", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -253,7 +253,7 @@ TEST(Inflation, complex)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -298,7 +298,7 @@ TEST(Inflation, move_forward)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters_low_inflation", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters_low_inflation", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -342,7 +342,7 @@ TEST(Inflation, move_backward)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters_low_inflation", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters_low_inflation", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -386,7 +386,7 @@ TEST(Inflation, move_left)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters_low_inflation", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters_low_inflation", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -430,7 +430,7 @@ TEST(Inflation, move_right)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters_low_inflation", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters_low_inflation", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -474,7 +474,7 @@ TEST(Inflation, move_diagonal)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters_low_inflation", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters_low_inflation", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -511,7 +511,7 @@ TEST(Inflation, Stress_test_1)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -538,7 +538,7 @@ TEST(Inflation, Stress_test_2)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }

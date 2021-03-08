@@ -7,7 +7,7 @@
 #include "sensor_map.hpp"
 #include <chrono>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 
     // Static variable definition
@@ -706,4 +706,4 @@ namespace t_mapping
         return 0;
     }
 
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map

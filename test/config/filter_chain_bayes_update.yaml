@@ -1,6 +1,6 @@
-t_mapping_filters_bayes_update:
+mitre_fast_layered_map_filters_bayes_update:
     - name: bayes_update
-      type: tMapping/BayesUpdate
+      type: mitreFastLayeredMap/BayesUpdate
       params:
         probability_layer: current_probability
         history_layer_prefix: "history_"

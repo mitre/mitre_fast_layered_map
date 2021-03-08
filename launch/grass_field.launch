@@ -1,8 +1,8 @@
 <launch>
 
-    <node pkg="t_mapping" type="sensor_map_node" name="local_map" output="screen">
-        <rosparam command="load" file="$(find t_mapping)/config/local_map_long_memory.yaml"/>
-        <rosparam command="load" file="$(find t_mapping)/config/filter_chain_low_confidence.yaml"/>
+    <node pkg="mitre_fast_layered_map" type="sensor_map_node" name="local_map" output="screen">
+        <rosparam command="load" file="$(find mitre_fast_layered_map)/config/local_map_long_memory.yaml"/>
+        <rosparam command="load" file="$(find mitre_fast_layered_map)/config/filter_chain_low_confidence.yaml"/>
     </node>
 
 </launch>

@@ -8,8 +8,8 @@ map_frame_id: "odom"
 vehicle_frame_id: "base_link"
 map_len: 50
 resolution: 0.3
-obstacle_filter_ns: "t_mapping_obstacle_filters"
-map_operations_filter_ns: "t_mapping_map_operations"
+obstacle_filter_ns: "mitre_fast_layered_map_obstacle_filters"
+map_operations_filter_ns: "mitre_fast_layered_map_map_operations"
 enable_permanent_obstacles: false
 permanent_obstacle_probability: 0.999
 history_layer_prefix: "history_"

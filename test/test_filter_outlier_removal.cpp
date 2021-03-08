@@ -17,7 +17,7 @@ TEST(OutlierRemoval, layer_doesnt_exist)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -44,7 +44,7 @@ TEST(OutlierRemoval, remove_middle_one)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -76,7 +76,7 @@ TEST(OutlierRemoval, remove_perimeter_one)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -107,7 +107,7 @@ TEST(OutlierRemoval, preserve_points)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }
@@ -168,7 +168,7 @@ TEST(OutlierRemoval, large_case)
 
     filters::FilterChain<grid_map::GridMap> filterChain("grid_map::GridMap");
 
-    if(!filterChain.configure("t_mapping_filters", nh))
+    if(!filterChain.configure("mitre_fast_layered_map_filters", nh))
     {
         GTEST_FATAL_FAILURE_("Unable to configure filter chain."); // We should never get here
     }

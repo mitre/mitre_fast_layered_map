@@ -1,6 +1,6 @@
 #include "static_map.hpp"
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 
     StaticMap::StaticMap() : tfListener_(tfBuffer_)
@@ -191,4 +191,4 @@ namespace t_mapping
         gridMapPub_.publish(gridMapMessage);
     }
 
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map

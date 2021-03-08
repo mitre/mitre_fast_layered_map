@@ -3,8 +3,8 @@
  * @brief Mapping solution that can be modified dynamically based on sensor readings.
  * @author Trevor Bostic
  */
-#ifndef t_mapping_sensor_map
-#define t_mapping_sensor_map
+#ifndef mitre_fast_layered_map_sensor_map
+#define mitre_fast_layered_map_sensor_map
 #pragma once
 
 // STD
@@ -31,7 +31,7 @@
 #include <pcl-1.7/pcl/point_types.h>
 #include <pcl_conversions/pcl_conversions.h>
 
-namespace t_mapping
+namespace mitre_fast_layered_map
 {
 
     struct MapConfiguration
@@ -110,7 +110,7 @@ namespace t_mapping
          * ros::NodeHandle nh('~');
          * MapConfiguraton config;
          * // Set config
-         * t_mapping::Map(&nh, config);
+         * mitre_fast_layered_map::Map(&nh, config);
          * @endcode
          */
         SensorMap(ros::NodeHandle *, MapConfiguration);
@@ -192,6 +192,6 @@ namespace t_mapping
         bool TestMapCells(SensorMap &, std::string, Eigen::MatrixXi);
         bool TestMapCells(SensorMap& , std::string, Eigen::MatrixXf);
     };
-} // namespace t_mapping
+} // namespace mitre_fast_layered_map
 
 #endif

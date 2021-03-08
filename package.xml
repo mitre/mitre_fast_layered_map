@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>t_mapping</name>
+  <name>mitre_fast_layered_map</name>
   <version>0.1.3</version>
-  <description>The t_mapping package</description>
+  <description>The mitre_fast_layered_map package</description>
 
   <maintainer email="tbostic@mitre.org">tbostic</maintainer>
   <license>Apache 2.0</license>

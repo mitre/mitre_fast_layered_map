@@ -1,9 +1,9 @@
 <launch>
 
-    <include file="$(find t_mapping)/test/launch/outlier_removal.launch" />
-    <include file="$(find t_mapping)/test/launch/ray_trace.launch" />
-    <include file="$(find t_mapping)/test/launch/inflation.launch" />
-    <include file="$(find t_mapping)/test/launch/bayes_update.launch" />
-    <include file="$(find t_mapping)/test/launch/map.launch" />
+    <include file="$(find mitre_fast_layered_map)/test/launch/outlier_removal.launch" />
+    <include file="$(find mitre_fast_layered_map)/test/launch/ray_trace.launch" />
+    <include file="$(find mitre_fast_layered_map)/test/launch/inflation.launch" />
+    <include file="$(find mitre_fast_layered_map)/test/launch/bayes_update.launch" />
+    <include file="$(find mitre_fast_layered_map)/test/launch/map.launch" />
 
 </launch>

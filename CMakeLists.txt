@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(t_mapping)
+project(mitre_fast_layered_map)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -50,7 +50,7 @@ find_package(Eigen3 REQUIRED)
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES t_mapping
+  LIBRARIES mitre_fast_layered_map
 #  CATKIN_DEPENDS other_catkin_pkg
 #  DEPENDS system_lib
 )
@@ -162,37 +162,37 @@ if(CATKIN_ENABLE_TESTING)
   add_rostest_gtest(test_filter_outlier_removal 
     test/launch/outlier_removal.launch 
     test/test_filter_outlier_removal.cpp
-    test/test_t_mapping.cpp)
+    test/test_mitre_fast_layered_map.cpp)
   target_link_libraries(test_filter_outlier_removal ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_ray_trace
     test/launch/ray_trace.launch
     test/test_filter_ray_trace.cpp
-    test/test_t_mapping.cpp)
+    test/test_mitre_fast_layered_map.cpp)
   target_link_libraries(test_filter_ray_trace ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_inflation
     test/launch/inflation.launch
     test/test_filter_inflation.cpp
-    test/test_t_mapping.cpp)
+    test/test_mitre_fast_layered_map.cpp)
   target_link_libraries(test_filter_inflation ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_bayes_update
     test/launch/bayes_update.launch
     test/test_filter_bayes_update.cpp
-    test/test_t_mapping.cpp)
+    test/test_mitre_fast_layered_map.cpp)
   target_link_libraries(test_filter_bayes_update ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_filter_threshold
     test/launch/threshold.launch
     test/test_filter_threshold.cpp
-    test/test_t_mapping.cpp)
+    test/test_mitre_fast_layered_map.cpp)
   target_link_libraries(test_filter_threshold ${catkin_LIBRARIES})
 
   add_rostest_gtest(test_map 
     test/launch/map.launch 
     test/test_map.cpp 
-    test/test_t_mapping.cpp
+    test/test_mitre_fast_layered_map.cpp
     test/init_vars.cpp)
   target_link_libraries(test_map ${PROJECT_NAME} filter_plugins ${catkin_LIBRARIES})
 
